@@ -28,9 +28,11 @@ export default function Search_Page(){
                     results != null &&(
                         <Search_Result>
                                 <Search_Iten key={results.username}>
-                                    <p>
-                                        {results.username}
-                                    </p>
+                                    <a href={`/profine?username=${results.username}`}>
+                                        <p>
+                                            {results.username}
+                                        </p>
+                                    </a>
                                 </Search_Iten>
                         </Search_Result>
                     )
