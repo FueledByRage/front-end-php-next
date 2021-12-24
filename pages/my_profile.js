@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import { Container, Form_Box, Styled_Button, Styled_Input } from "../components/My_Profile";
 import { getToken, getUser, isLogged } from "../storage";
+import { Error_Box } from "../components/Error_Box";
 import api from "./api/hello";
 import Login from "./login";
 
@@ -10,7 +10,7 @@ export default function My_Profile(props){
     const [ logged, setLogged ] = useState(false)
     const [ user, setUser ] = useState('')
     const [ body, setBody ] = useState('')
-    const [ error, setError ] = useState(null)
+    const [ error, setError ] = useState('')
 
     useEffect(()=>{
         setLogged(isLogged)
@@ -46,7 +46,7 @@ export default function My_Profile(props){
                     />
                     <Styled_Button>Post</Styled_Button>
                 </form>
-                {error && <Error_Box>{error}</Error_Box>}
+                {error != '' && <Error_Box>{error}</Error_Box>}
             </Form_Box>
         </Container>
     )

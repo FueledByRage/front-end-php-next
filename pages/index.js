@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react'
 
 export default function Home() {
 
-  const [ logged, setIsLogged ] = useState()
+  const [ logged, setIsLogged ] = useState(false)
 
   useEffect(()=>{
     setIsLogged(isLogged())
-  })
+  },[])
   
   if(logged) return ( <Search_Page /> )
   return(

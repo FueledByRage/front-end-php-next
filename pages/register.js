@@ -8,12 +8,11 @@ import router from 'next/router'
 
 export default function Register_Page(){
 
-    
     const [ email, setEmail ] = useState('')
     const [ username, setUsername ] = useState('')
     const [ about, setAbout ] = useState('')
     const [ password, setPassword ] = useState('')
-    const [ error, setError ] = useState(null) 
+    const [ error, setError ] = useState('') 
 
 
     async function handleSubmit(e){
@@ -78,7 +77,7 @@ export default function Register_Page(){
                 />
                 <Styled_Button>Registrar</Styled_Button>
             </form>
-            {error && <Error_Box>{error}</Error_Box>}
+            {error != '' && <Error_Box>{error}</Error_Box>}
         </Form_Div>
 
     )

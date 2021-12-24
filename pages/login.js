@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development"
+import { useState } from "react"
 import { Error_Box } from "../components/Error_Box"
 import { Container, Login_Page } from '../components/login'
 import { Styled_Button, Styled_Input } from "../components/register_form"
@@ -10,7 +10,7 @@ import api from "./api/hello"
 export default function Login(){
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
-    const [ error, setError ] = useState(null)
+    const [ error, setError ] = useState('')
 
     async function handleSubmit(e) {
 
@@ -65,7 +65,7 @@ export default function Login(){
                         Register
                     </Styled_Link>
                 </div>
-                {error && <Error_Box>{error}</Error_Box>}
+                {error != '' && <Error_Box>{error}</Error_Box>}
             </Login_Page>
 
         </Container>

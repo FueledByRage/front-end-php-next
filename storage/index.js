@@ -21,6 +21,6 @@ export function getToken (){
 
 export function isLogged(){
   if(sessionStorage.getItem('token') === null) return false
-
+  
   return true
 }

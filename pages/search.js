@@ -1,12 +1,13 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import { Error_Box } from "../components/Error_Box";
+import { Header } from "../components/header";
 import { Container, Search_Box, Search_Input, Search_Iten, Search_Result } from "../components/Search";
 import api from "./api/hello";
 
 export default function Search_Page(){
 
-    const [ results, setResults ] = useState(null)
-    const [ error, setError ] = useState(null)
+    const [ results, setResults ] = useState([])
+    const [ error, setError ] = useState('')
     async function handleSearch(e){
         const param = e.target.value
         const response = await api.get(`/user/?username=${param}`).catch((e)=>{
@@ -18,6 +19,8 @@ export default function Search_Page(){
 
 
     return(
+        <>
+        <Header />
         <Container>
             <Search_Box>
                 <Search_Input 
@@ -25,7 +28,7 @@ export default function Search_Page(){
                 />
             </Search_Box>
                 {
-                    results != null &&(
+                    results.length > 0 &&(
                         <Search_Result>
                                 <Search_Iten key={results.username}>
                                     <a href={`/profine?username=${results.username}`}>
@@ -38,12 +41,14 @@ export default function Search_Page(){
                     )
                 }
                 {
-                    error != null&&(
+                    error != '' &&(
                         <Error_Box>
                             {error}
                         </Error_Box>
                     )
                 }
         </Container>
+        
+        </>
     )
 }
