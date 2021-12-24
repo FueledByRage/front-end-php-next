@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Error_Box } from "../components/Error_Box"
 import { Form_Div, Styled_Input, Styled_Button } from "../components/register_form"
 import { isLogged, setUserSession } from "../storage"
@@ -13,7 +13,11 @@ export default function Register_Page(){
     const [ about, setAbout ] = useState('')
     const [ password, setPassword ] = useState('')
     const [ error, setError ] = useState('') 
+    const [ loginDone, setLogged ] = useState(false)
 
+    useEffect(()=>{
+        setLogged(isLogged())
+    },[])
 
     async function handleSubmit(e){
 
@@ -39,7 +43,7 @@ export default function Register_Page(){
     }
 
     
-    if(isLogged()) router.push('/') 
+    if(loginDone) router.push('/') 
 
     return(
 
