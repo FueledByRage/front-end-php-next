@@ -5,6 +5,7 @@ import { Error_Box } from "../components/Error_Box";
 import api from "./api/hello";
 import Login from "./login";
 
+
 export default function My_Profile(props){
 
     const [ logged, setLogged ] = useState(false)
@@ -35,6 +36,7 @@ export default function My_Profile(props){
 
     if(!logged) return (<Login />)
     return(
+        <>
         <Container>
             <Form_Box>
                 <h3>{user}</h3>
@@ -49,5 +51,6 @@ export default function My_Profile(props){
                 {error != '' && <Error_Box>{error}</Error_Box>}
             </Form_Box>
         </Container>
+        </>
     )
 }

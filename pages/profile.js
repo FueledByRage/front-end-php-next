@@ -1,6 +1,9 @@
 import { Container, Feed, Header, Post_Box } from "../components/profile/index.js"
 import { Styled_Avatar } from "../components/profile/styled_avatar.js"
 import  api  from "./api/hello.js"
+import { FloatButton } from "../components/Float_Button";
+import { IconContext } from "react-icons";
+import { FiUser } from 'react-icons/fi'
 
 function Profile({error, results, message}){
     
@@ -14,29 +17,32 @@ function Profile({error, results, message}){
         )
     }
     return(
-        <Container>
-            <Feed>
-                <Header>
-                        <div className="avatar">
-                            <Styled_Avatar src={url}></Styled_Avatar>
-                            <h2>{results.user.username}</h2>
-                        </div>
-                    <div>
-                        {results.user.about}
-                    </div>
-                </Header>
-                {
-                    results.posts.map((post)=>{
-                        return <Post_Box key={post.author}>
-                            <div className="body">
-                                <span>{post.body}</span>
+        <>
+            <Container>
+                <Feed>
+                    <Header>
+                            <div className="avatar">
+                                <Styled_Avatar src={url}></Styled_Avatar>
+                                <h2>{results.user.username}</h2>
                             </div>
-                            <div className="footer">{post.date.split(' ')[0]}</div>
-                        </Post_Box>
-                    })
-                }
-            </Feed>
-        </Container>
+                        <div>
+                            {results.user.about}
+                        </div>
+                    </Header>
+                    {
+                        results.posts.map((post)=>{
+                            return <Post_Box key={post.author}>
+                                <div className="body">
+                                    <span>{post.body}</span>
+                                </div>
+                                <div className="footer">{post.date.split(' ')[0]}</div>
+                            </Post_Box>
+                        })
+                    }
+                </Feed>
+            </Container>
+            <FloatButton href="/my_profile"><IconContext.Provider value={{size: "25px"}}><FiUser /></IconContext.Provider></FloatButton>
+        </>
         )
     }
     
