@@ -4,6 +4,9 @@ import { getToken, getUser, isLogged } from "../storage";
 import { Error_Box } from "../components/Error_Box";
 import api from "./api/hello";
 import Login from "./login";
+import router from "next/router"
+import { Styled_Avatar } from "../components/profile/styled_avatar";
+
 
 
 export default function My_Profile(props){
@@ -12,10 +15,12 @@ export default function My_Profile(props){
     const [ user, setUser ] = useState('')
     const [ body, setBody ] = useState('')
     const [ error, setError ] = useState('')
+    const url = 'profile.png'
 
     useEffect(()=>{
         setLogged(isLogged)
         setUser(getUser())
+        console.log(user)
     },[])
 
     const Handle_Submit = async event => {
@@ -27,7 +32,8 @@ export default function My_Profile(props){
                 throw new Error(error.response.data.message)
             })
 
-            window.location.reload()
+            router.push(`/profile?username=${user}`)
+
         } catch (error) {
             setError(error.message)
         }
@@ -39,7 +45,11 @@ export default function My_Profile(props){
         <>
         <Container>
             <Form_Box>
-                <h3>{user}</h3>
+                <div className="header">
+                    <Styled_Avatar src={url}/>
+                    <h3>{user}</h3>
+
+                </div>
                 <form onSubmit={Handle_Submit}>
                     <Styled_Input 
                     rows='6'

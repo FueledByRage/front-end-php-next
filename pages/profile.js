@@ -40,8 +40,8 @@ function Profile({error, results, message}){
                         })
                     }
                 </Feed>
-            </Container>
             <FloatButton href="/my_profile"><IconContext.Provider value={{size: "25px"}}><FiUser /></IconContext.Provider></FloatButton>
+            </Container>
         </>
         )
     }

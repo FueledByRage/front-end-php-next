@@ -5,7 +5,6 @@ export const Container = styled.div`
     justify-content: center;
     align-content: center;
     width: 100%;
-    color: gray;
 `
 
 export const Feed = styled.div`
@@ -41,7 +40,8 @@ export const Post_Box = styled.div`
     height: 10vh;
     background-color: white;
     padding: 10px;
-
+    border-radius: 10px;
+    margin-top: 20px;
     .footer{
         font-weight: bold;
         display: flex;

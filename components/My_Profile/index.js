@@ -31,6 +31,12 @@ export const Form_Box = styled.div`
     flex-direction: column;
     width: 70vw;
     height: 350px;
+    h3{
+        margin-left: 5px;
+    }
+    .header{
+        display: flex;
+    }
     form{
         width: 100%;
     }

@@ -27,7 +27,6 @@ export default function Login(){
                 throw new Error(error.response.data.message)
             })
             
-            
             const { token, username } = response.data
             
     
