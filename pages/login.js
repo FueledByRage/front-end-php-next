@@ -29,7 +29,7 @@ export default function Login(){
             
             const { token, username } = response.data
             
-    
+
             setUserSession(token, username)
             
             router.push('/my_profile')

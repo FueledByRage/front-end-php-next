@@ -27,7 +27,7 @@ export default function Register_Page(){
             if(email == '' || username == '' || password == '' ) setError('There are empty fields!')
     
             const response = await api.post(`/user/register`, JSON.stringify({email, password, username, about})).catch((error)=>{
-                throw new Error(error.response.data.message)
+                throw new Error("Error registering")
             })
 
             const { token, user } = response.data
