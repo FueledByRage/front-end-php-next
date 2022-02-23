@@ -20,7 +20,6 @@ export default function My_Profile(props){
     useEffect(()=>{
         setLogged(isLogged)
         setUser(getUser())
-        console.log(user)
     },[])
 
     const Handle_Submit = async event => {
@@ -48,7 +47,6 @@ export default function My_Profile(props){
                 <div className="header">
                     <Styled_Avatar src={url}/>
                     <h3>{user}</h3>
-
                 </div>
                 <form onSubmit={Handle_Submit}>
                     <Styled_Input 

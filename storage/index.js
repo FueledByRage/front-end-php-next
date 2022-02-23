@@ -15,9 +15,7 @@ export function removeUserSession(){
     sessionStorage.removeItem('user')
 }
 
-export function getToken (){
-    return sessionStorage.getItem('token') || null
-}
+export const getToken = () => sessionStorage.getItem('token'); 
 
 export function isLogged(){
   if(sessionStorage.getItem('token') === null) return false

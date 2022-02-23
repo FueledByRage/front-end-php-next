@@ -17,22 +17,23 @@ export default function Login(){
         try {
             e.preventDefault()
             
-            const formData = new FormData()
-            formData.append('email', email)
-            formData.append('password', password)
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
 
-            if(email == '' || password == '') setError('Missing credentials')
+            if(email == '' || password == '') setError('Missing credentials');
     
             const response = await api.post('/login', JSON.stringify({ email, password })).catch((error)=>{
                 throw new Error(error.response.data.message)
-            })
-            
-            const { token, username } = response.data
+            });
             
 
-            setUserSession(token, username)
+            const { token, username } = response.data;
             
-            router.push('/my_profile')
+
+            setUserSession(token, username);
+            
+            router.push('/my_profile');
 
         } catch (error) {
             setError(error.message)

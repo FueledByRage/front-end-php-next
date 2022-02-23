@@ -35,7 +35,7 @@ function Profile({error, results, message}){
                                 <div className="body">
                                     <span>{post.body}</span>
                                 </div>
-                                <div className="footer">{post.date.split(' ')[0]}</div>
+                                <div className="footer">{post.createdAt.split(' ')[0]}</div>
                             </Post_Box>
                         })
                     }
