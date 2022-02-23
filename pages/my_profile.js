@@ -42,6 +42,8 @@ export default function My_Profile(props){
     if(!logged) return (<Login />)
     return(
         <>
+        <Error_Box>Não funciona mais, removerei em breve :)</Error_Box>
+        <Error_Box><a href={`/clips/?username=${user}`}>Use esse link</a></Error_Box>
         <Container>
             <Form_Box>
                 <div className="header">

@@ -17,10 +17,10 @@ export default function Clips({error, results, message}){
         <>
             <Clips_Container>
                 {
-                    results.posts.map((post) =>{
-                        return <Clip>
+                    results.posts.map((post,index) =>{
+                        return <Clip key={index} >
                                     <div className="video-container" >
-                                        <video src={post.videoUrl} />
+                                        <video src={post.videoUrl} controls/>
                                     </div>
                                     <div className="body-div">
                                         <span>{post.body}</span>

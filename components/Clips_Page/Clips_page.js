@@ -16,8 +16,8 @@ export const Clip = styled.div`
     padding: 10px;
     background-color: whitesmoke;
     min-height: 250px;
-    max-width: 200px;
-    margin-left: 10px;
+    max-width: 250px;
+    margin-left: 55px;
     margin-top: 10px;
     width: 100%;
     border-radius: 5px;
@@ -34,7 +34,7 @@ export const Clip = styled.div`
         align-items: center;
         height: 70%;
         video{
-            min-width: 250px;
+            min-width: 240px;
             height:100px;
         }
     }

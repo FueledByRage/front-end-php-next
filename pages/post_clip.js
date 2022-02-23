@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import DragAndDrop from "../components/PostClips/DragAndDrop";
 import { Container, StyledForm } from "../components/PostClips/post_clips";
 import { Styled_Button } from "../components/register_form";
-import { getToken, isLogged } from "../storage";
+import { getToken, getUser, isLogged } from "../storage";
 import api from "./api/hello"
+import { Error_Box } from "../components/Error_Box";
 import Login from "./login";
+import router from "next/router";
+import { FiVideo } from 'react-icons/fi'
+import { IconContext } from "react-icons";
+import { FloatButton } from "../components/Float_Button";
 
 
 
@@ -17,7 +21,7 @@ export default function PostClip(props){
 
     useEffect(()=>{
         setLogged(isLogged);
-    });
+    },[]);
 
     async function Handle_Submit(e){
         e.preventDefault();
@@ -28,10 +32,11 @@ export default function PostClip(props){
         form.append('body', body);
 
         try {
-            const response = await api.post('/post/register', form, config).catch((e) =>{
+            await api.post('/post/register', form, config).catch((e) =>{
                 throw e;
             });
-            
+
+            router.push(`/clips/?username=${getUser()}`)
         } catch (error) {
             setError(error);
         }
@@ -44,17 +49,19 @@ export default function PostClip(props){
     return(
         <Container>
             <StyledForm onSubmit={Handle_Submit}>
+                <textarea 
+                    rows={5}
+                    onChange={(e)=> setBody(e.target.value)}
+                />
                 <input
                     type='file'
                     accept="video/*"
                     onChange={(e) => setFile(e.target.files[0])}
                 />
-                <textarea 
-                    rows={5}
-                    onChange={(e)=> setBody(e.target.value)}
-                />
                 <Styled_Button>Send</Styled_Button>
             </StyledForm>
+            {error  && <Error_Box>{error}</Error_Box>}
+            <FloatButton href={`/clips/?username=${getUser()}`}><IconContext.Provider value={{size: "20px"}}><FiVideo /></IconContext.Provider></FloatButton>
         </Container>
     );
 }

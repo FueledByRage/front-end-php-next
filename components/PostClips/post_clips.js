@@ -49,8 +49,9 @@ export const StyledForm = styled.form`
     }
 
     input{
-        margin-left: 20px;
+        margin-left: 23px;
         align-self: start;
+        margin-top: 10px;
     }
 
     textarea{

@@ -33,7 +33,7 @@ export default function Search_Page(){
                         results.length > 0 &&(
                             <Search_Result>
                                     <Search_Iten key={results.username}>
-                                        <a href={`/profine?username=${results.username}`}>
+                                        <a href={`/clips/?username=${results.username}`}>
                                             <p>
                                                 {results.username}
                                             </p>
@@ -50,7 +50,7 @@ export default function Search_Page(){
                         )
                     }
             </Container>
-            <FloatButton href="/my_profile"><IconContext.Provider value={{size: "25px"}}><FiUser /></IconContext.Provider></FloatButton>
+            <FloatButton href={`/post_clip`}><IconContext.Provider value={{size: "25px"}}><FiUser /></IconContext.Provider></FloatButton>
         </>
     )
 }

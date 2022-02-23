@@ -1,6 +1,7 @@
 import { Container, Feed, Header, Post_Box } from "../components/profile/index.js"
 import { Styled_Avatar } from "../components/profile/styled_avatar.js"
 import  api  from "./api/hello.js"
+import { Error_Box } from "../components/Error_Box";
 import { FloatButton } from "../components/Float_Button";
 import { IconContext } from "react-icons";
 import { FiUser } from 'react-icons/fi'
@@ -18,6 +19,7 @@ function Profile({error, results, message}){
     }
     return(
         <>
+            <Error_Box>Removerei em breve, tente a page /clips :)</Error_Box>
             <Container>
                 <Feed>
                     <Header>
