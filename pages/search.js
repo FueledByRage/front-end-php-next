@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Error_Box } from "../components/Error_Box";
 import { FloatButton } from "../components/Float_Button";
 import { IconContext } from "react-icons";
-import { FiUser } from 'react-icons/fi'
+import { FiUser } from 'react-icons/fi';
 import { Container, Search_Box, Search_Input, Search_Iten, Search_Result } from "../components/Search";
 import api from "./api/hello";
 

@@ -26,14 +26,15 @@ export default function Login(){
             const response = await api.post('/login', JSON.stringify({ email, password })).catch((error)=>{
                 throw new Error(error.response.data.message)
             });
-            
+
+            if(!response) throw new Error('Error: Could not connect to server');
 
             const { token, username } = response.data;
             
 
             setUserSession(token, username);
             
-            router.push('/my_profile');
+            router.push('/post_clip');
 
         } catch (error) {
             setError(error.message)

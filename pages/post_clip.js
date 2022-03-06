@@ -32,13 +32,16 @@ export default function PostClip(props){
         form.append('body', body);
 
         try {
-            await api.post('/post/register', form, config).catch((e) =>{
+            const response = await api.post('/post/register', form, config).catch((e) =>{
                 throw e;
             });
 
-            router.push(`/clips/?username=${getUser()}`)
+            if(!response) throw new Error('Error: Could not connect to server');
+
+
+            //router.push(`/clips/?username=${getUser()}`)
         } catch (error) {
-            setError(error);
+            setError(error.method);
         }
 
         
