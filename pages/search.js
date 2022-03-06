@@ -9,15 +9,16 @@ import api from "./api/hello";
 
 export default function Search_Page(){
 
-    const [ results, setResults ] = useState([])
+    const [ results, setResults ] = useState('')
     const [ error, setError ] = useState('')
+
     async function handleSearch(e){
-        const param = e.target.value
+        const param = e.target.value;
         const response = await api.get(`/user/?username=${param}`).catch((e)=>{
-            setResults(null)
-        })
-        
-        if(response) setResults(response.data)
+            setResults(null);
+        });
+
+        if(response) setResults(response.data);
     }
 
 
@@ -30,7 +31,7 @@ export default function Search_Page(){
                     />
                 </Search_Box>
                     {
-                        results.length > 0 &&(
+                        results && results != ''  &&(
                             <Search_Result>
                                     <Search_Iten key={results.username}>
                                         <a href={`/clips/?username=${results.username}`}>
