@@ -39,9 +39,9 @@ export default function PostClip(props){
             if(!response) throw new Error('Error: Could not connect to server');
 
 
-            //router.push(`/clips/?username=${getUser()}`)
+            router.push(`/clips/?username=${getUser()}`)
         } catch (error) {
-            setError(error.method);
+            setError(error.message);
         }
 
         
