@@ -25,7 +25,7 @@ It's functionality consist of creating a profile and posting videos.
 
 # Why 
 I found the server side rendering interesting and since i wanted to start a new project using PHP on back-end 
-putting it all togheter just fitted well.
+putting it all together just fitted well.
 
 # Screens
 
