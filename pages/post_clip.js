@@ -26,7 +26,7 @@ export default function PostClip(props){
     async function Handle_Submit(e){
         e.preventDefault();
 
-        const config = {headers: { token: getToken() }}
+        const config = { headers: { token: getToken() } }
         const form = new FormData();
         form.append('file', file);
         form.append('body', body);
@@ -43,7 +43,6 @@ export default function PostClip(props){
         } catch (error) {
             setError(error.message);
         }
-
         
     }
 

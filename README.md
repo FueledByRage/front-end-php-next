@@ -28,6 +28,11 @@ I found the server side rendering interesting and since i wanted to start a new 
 putting it all togheter just fitted well.
 
 # Screens
-I'll be uploading new screenshots since the project now is about posting videos and has got new features.
+
+![Login](./screens/login.png)
+![register](./screens/register_error.png)
+![search](./screens/search.png)
+![results](./screens/search_result.png)
+![posting](./screens/posting.gif)
 
 By: [Erik](https://www.linkedin.com/in/erik-natan-moreira-santos-983865195/)
