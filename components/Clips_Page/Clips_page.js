@@ -1,5 +1,29 @@
 import styled from "styled-components";
 
+export const UserInfo = styled.div`
+    display: flex;
+    max-width: 100vw;
+    width: 100%;
+    align-items: center;
+    padding: 10px 40px 10px;
+    height: 20vh;
+    border-bottom:2px solid;
+`;
+
+export const Username = styled.div`
+    color: white;
+    margin-left: 20px;
+`;
+
+export const UserAbout = styled.div`
+    width: 30%;
+    height: 90%;
+    padding: 5px;
+    border-bottom: 5px solid white;
+    align-self: end;
+    border-radius: 3px;
+    margin-left: 55%;
+`;
 
 export const Clips_Container = styled.div`
     display: flex;
@@ -8,7 +32,19 @@ export const Clips_Container = styled.div`
     padding: 50px;
     width: 100vw;
     `;
-    
+
+export const EmptyContainer = styled.div`
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 80vw;
+    margin: auto;
+    height: 70vh;
+    border: 5px dotted white;
+    border-radius: 10px;
+`
     
 export const Clip = styled.div`
     display: flex;

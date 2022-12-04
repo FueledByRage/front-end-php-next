@@ -15,6 +15,7 @@ import { FloatButton } from "../components/Float_Button";
 export default function PostClip(props){
 
     const [ file, setFile ] = useState(null);
+    const [ title, setTitle ] = useState('');
     const [ logged, setLogged ] = useState(false);
     const [ body, setBody ] = useState('');
     const [ error, setError ] = useState(null);
@@ -25,16 +26,18 @@ export default function PostClip(props){
 
     async function Handle_Submit(e){
         e.preventDefault();
-
+        if(title == '' || body == '' || !file) setError('Não é permitido campos vazios');
         const config = { headers: { token: getToken() } }
         const form = new FormData();
         form.append('file', file);
         form.append('body', body);
+        form.append('title', title);
 
         try {
             const response = await api.post('/post/register', form, config).catch((e) =>{
                 throw e;
             });
+
 
             if(!response) throw new Error('Error: Could not connect to server');
 
@@ -51,11 +54,19 @@ export default function PostClip(props){
     return(
         <Container>
             <StyledForm onSubmit={Handle_Submit}>
+                <input
+                    className="title"
+                    type={'text'}
+                    placeholder={'Title'}
+                    onChange={e => setTitle(e.target.value)}
+                />
                 <textarea 
+                    placeholder="Video description"
                     rows={5}
                     onChange={(e)=> setBody(e.target.value)}
                 />
                 <input
+                    className="file"
                     type='file'
                     accept="video/*"
                     onChange={(e) => setFile(e.target.files[0])}

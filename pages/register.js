@@ -15,6 +15,8 @@ export default function Register_Page(){
     const [ error, setError ] = useState('') 
     const [ loginDone, setLogged ] = useState(false)
 
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
     useEffect(()=>{
         setLogged(isLogged())
     },[])
@@ -24,8 +26,9 @@ export default function Register_Page(){
         try {
             e.preventDefault()
     
-            if(email == '' || username == '' || password == '' ) setError('There are empty fields!')
-    
+            if(email == '' || username == '' || password == '' ) return setError('There are empty fields!')
+            if(!emailRegex.test(email)) return setError('The email is invalid');
+            
             const response = await api.post(`/user/register`, JSON.stringify({email, password, username, about})).catch((error)=>{
                 throw new Error("Error registering")
             })
@@ -46,16 +49,14 @@ export default function Register_Page(){
     if(loginDone) router.push('/') 
 
     return(
-
-
         <Form_Div>
             <form className="form" onSubmit={handleSubmit}>
                 <Styled_Input 
-                name="email"
-                className="inputs"
-                type="text"
-                placeholder="Email"
-                onChange={e=>{setEmail(e.target.value)}}
+                    name="email"
+                    className="inputs"
+                    type="text"
+                    placeholder="Email"
+                    onChange={e=>{setEmail(e.target.value)}}
                 />
                 <Styled_Input 
                 name="username"

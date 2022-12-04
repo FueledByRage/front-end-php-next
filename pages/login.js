@@ -24,7 +24,7 @@ export default function Login(){
             if(email == '' || password == '') setError('Missing credentials');
     
             const response = await api.post('/login', JSON.stringify({ email, password })).catch((error)=>{
-                throw new Error(error.response.data.message)
+                throw new Error('Erro ao realizar login.')
             });
 
             if(!response) throw new Error('Error: Could not connect to server');
@@ -70,7 +70,6 @@ export default function Login(){
                 </div>
                 {error != '' && <Error_Box>{error}</Error_Box>}
             </Login_Page>
-
         </Container>
     )
 }

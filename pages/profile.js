@@ -19,7 +19,7 @@ function Profile({error, results, message}){
     }
     return(
         <>
-            <Error_Box>Removerei em breve, tente a page /clips :)</Error_Box>
+            <Error_Box>Removerei em breve, tente a page /clips </Error_Box>
             <Container>
                 <Feed>
                     <Header>

@@ -1,7 +1,7 @@
-import Login from './login'
-import Search_Page from './search'
-import { isLogged } from '../storage'
-import { useEffect, useState } from 'react'
+import Login from './login';
+import { isLogged } from '../storage';
+import Search_Page from './search';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
 
@@ -14,5 +14,5 @@ export default function Home() {
   if(logged) return ( <Search_Page /> )
   return(
     <Login />
-  )
+  ) 
 }
