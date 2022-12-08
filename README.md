@@ -18,6 +18,13 @@ yarn start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can also just run the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
 
 # About it 
 It's an exercise project to put in pratice what i've learned about React and study NextJs and it's features.
@@ -25,7 +32,7 @@ It's functionality consist of creating a profile and posting videos.
 
 # Why 
 I found the server side rendering interesting and since i wanted to start a new project using PHP on back-end 
-putting it all togheter just fitted well.
+putting it all together just fitted well.
 
 # Screens
 
