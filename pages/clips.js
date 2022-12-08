@@ -4,9 +4,15 @@ import { IconContext } from "react-icons";
 import { FiUser } from 'react-icons/fi';
 import api from "./api/hello"
 import Icon from "../components/icon";
+import { useState } from "react";
+import router from "next/router"
+
 
 
 export default function Clips({error, results, message}){
+
+    const [ closeModal, setCloseModal ] = useState(true);
+    const [ selectedVideo, setSelectedVideo ] = useState('');
 
     if(error){
         return(
@@ -15,6 +21,11 @@ export default function Clips({error, results, message}){
             </h1>
             
         )
+    }
+
+    const openVideo = ( videoUrl ) =>{
+        const videoName = videoUrl.split('/').slice(-1);
+        router.push(`/clip/?videoname=${videoName}`)
     }
 
     return(
@@ -42,7 +53,7 @@ export default function Clips({error, results, message}){
                 {
                     
                     (Array.from(results.posts) && Array.from(results.posts).length > 0 ) ? Array.from(results.posts).map((post,index) =>{
-                        return <Clip key={index} >
+                        return <Clip onClick={e => openVideo(post.videoUrl)} key={index}>
                                     <div className="video-container" >
                                         <video src={post.videoUrl} controls/>
                                     </div>
